@@ -15,7 +15,7 @@ function App() {
 
     return (
         <div style={{
-            maxWidth: "800px",
+            maxWidth: "min(100vw, 800px)",
             display: "flex",
             flexDirection: "column",
             gap: "2rem",
@@ -26,11 +26,13 @@ function App() {
                 fontSize: "2rem",
                 textAlign: "left",
             }}>
-                <HangmanDrawing/>
-                <HangmanWord/>
+                Lose Win
+            </div>
+            <HangmanDrawing/>
+            <HangmanWord/>
+            <div style={{alignSelf: "stretch", width: "100%"}}>
                 <Keyboard/>
             </div>
-
         </div>
     )
 }

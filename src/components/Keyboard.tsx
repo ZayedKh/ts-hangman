@@ -3,6 +3,15 @@ const KEYS: string[] = [
 ]
 
 export function Keyboard() {
-
+    return <div style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(75px, 1fr))",
+        gap: ".5rem",
+        width: "100%",
+    }}>
+        {KEYS.map((letter: string) => {
+            return <button key={letter}>{letter}</button>
+        })}
+    </div>
 
 }
