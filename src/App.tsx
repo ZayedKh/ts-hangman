@@ -1,6 +1,9 @@
 import {useState} from "react";
 import words from "./wordList.json";
 import './App.css'
+import {HangmanDrawing} from "./components/HangmanDrawing.tsx";
+import {HangmanWord} from "./components/HangmanWord.tsx";
+import {Keyboard} from "./components/Keyboard.tsx";
 
 function App() {
 
@@ -11,11 +14,24 @@ function App() {
     const [guessedLetters, setGuessedLetters] = useState<string>([]);
 
     return (
-        <>
-            <h1>
-                Solution: {solution}
-            </h1>
-        </>
+        <div style={{
+            maxWidth: "800px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "2rem",
+            margin: "0 auto",
+            alignItems: "center"
+        }}>
+            <div style={{
+                fontSize: "2rem",
+                textAlign: "left",
+            }}>
+                <HangmanDrawing/>
+                <HangmanWord/>
+                <Keyboard/>
+            </div>
+
+        </div>
     )
 }
 
