@@ -1,4 +1,4 @@
-import {useState,useEffect} from "react";
+import {useState, useEffect} from "react";
 import words from "./wordList.json";
 import './App.css'
 import {HangmanDrawing} from "./components/HangmanDrawing.tsx";
@@ -15,8 +15,8 @@ function App() {
 
     const incorrectLetters: string[] = guessedLetters.filter((letter: string): boolean => !solution.includes(letter));
 
-    function addGuessedLetter (key: string): void {
-        if(guessedLetters.includes(key)) {
+    function addGuessedLetter(key: string): void {
+        if (guessedLetters.includes(key)) {
             return;
         }
 
@@ -26,7 +26,7 @@ function App() {
     useEffect(() => {
         const handler = (e: KeyboardEvent) => {
             const key = e.key;
-            if(!key.match(/^[a-z]$/)) return;
+            if (!key.match(/^[a-z]$/)) return;
 
             e.preventDefault();
             addGuessedLetter(key);
@@ -38,6 +38,11 @@ function App() {
             document.removeEventListener("keypress", handler);
         }
     }, [])
+
+    const handleButtonClick = (letter: string) => {
+        const key: string = letter;
+        addGuessedLetter(key);
+    }
 
     return (
         <div style={{
@@ -51,7 +56,7 @@ function App() {
             <HangmanDrawing numberOfGuesses={incorrectLetters.length}/>
             <HangmanWord guessedLetters={guessedLetters} solution={solution}/>
             <div style={{alignSelf: "center", width: "200%"}}>
-                <Keyboard/>
+                <Keyboard handleButtonClick={handleButtonClick}/>
             </div>
         </div>
     )
