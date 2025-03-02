@@ -9,7 +9,6 @@ export function Keyboard() {
         display: "grid",
         gridTemplateColumns: "repeat(auto-fit, minmax(75px, 1fr))",
         gap: ".5rem",
-        width: "100%",
     }}>
         {KEYS.map((letter: string) => {
             return <button key={letter} className={styles.btn}>

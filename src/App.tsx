@@ -11,28 +11,22 @@ function App() {
         return words[Math.floor(Math.random() * words.length)];
     });
 
-    const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
+    const [guessedLetters, setGuessedLetters] = useState<string[]>(["t","g","e","s"]);
 
     const incorrectLetters: string[] = guessedLetters.filter((letter: string): boolean => !solution.includes(letter));
 
     return (
         <div style={{
-            maxWidth: "min(100vw, 800px)",
             display: "flex",
             flexDirection: "column",
             gap: "2rem",
             margin: "0 auto",
-            alignItems: "center"
+            alignItems: "center",
+            justifyContent: "center"
         }}>
-            <div style={{
-                fontSize: "2rem",
-                textAlign: "left",
-            }}>
-                Lose Win
-            </div>
             <HangmanDrawing numberOfGuesses={incorrectLetters.length}/>
-            <HangmanWord/>
-            <div style={{alignSelf: "stretch", width: "100%"}}>
+            <HangmanWord guessedLetters={guessedLetters} solution={solution}/>
+            <div style={{alignSelf: "center", width: "200%"}}>
                 <Keyboard/>
             </div>
         </div>
