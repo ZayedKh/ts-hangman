@@ -37,11 +37,10 @@ function App() {
         return () => {
             document.removeEventListener("keypress", handler);
         }
-    }, [])
+    }, []);
 
     const handleButtonClick = (letter: string) => {
-        const key: string = letter;
-        addGuessedLetter(key);
+        addGuessedLetter(letter);
     }
 
     return (
