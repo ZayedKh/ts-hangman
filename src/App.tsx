@@ -7,9 +7,7 @@ import {Keyboard} from "./components/Keyboard.tsx";
 
 function App() {
 
-    const [solution, setSolution] = useState<string>(() => {
-        return words[Math.floor(Math.random() * words.length)];
-    });
+    const [solution, setSolution] = useState<string>("");
 
     const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
 
@@ -31,6 +29,8 @@ function App() {
             e.preventDefault();
             addGuessedLetter(key);
         }
+
+        setSolution(words[Math.floor(Math.random() * words.length)]);
 
         document.addEventListener("keypress", handler);
 
