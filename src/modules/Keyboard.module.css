@@ -1,0 +1,19 @@
+.btn {
+    width: 100%;
+    background: none;
+    border: 3px solid black;
+    aspect-ratio: 1 / 1;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    padding: 0.5rem;
+    font-weight:bold;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.3s ease-in, background-color 0.3s ease-in, border-color 0.3s ease-in;
+}
+
+.btn:hover, .btn:focus {
+    transform: translateY(-5px);
+    background-color: hsl(200, 100%, 75%);
+    border-color: hsl(200, 100%, 75%);
+}

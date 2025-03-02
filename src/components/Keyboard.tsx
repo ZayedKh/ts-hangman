@@ -12,7 +12,7 @@ export function Keyboard() {
         width: "100%",
     }}>
         {KEYS.map((letter: string) => {
-            return <button key={letter} className="keyboard">
+            return <button key={letter} className={styles.btn}>
                 {letter}
             </button>
         })}
