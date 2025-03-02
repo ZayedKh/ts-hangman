@@ -12,7 +12,13 @@
     transition: transform 0.3s ease-in, background-color 0.3s ease-in, border-color 0.3s ease-in;
 }
 
-.btn:hover, .btn:focus {
+.btn.active {
+    background-color: hsl(200, 100%, 50%);
+    color: white;
+}
+
+
+.btn:hover:not(:disabled), .btn:focus:not(:disabled) {
     transform: translateY(-5px);
     background-color: hsl(200, 100%, 75%);
     border-color: hsl(200, 100%, 75%);

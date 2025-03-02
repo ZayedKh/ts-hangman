@@ -7,11 +7,13 @@ import {Keyboard} from "./components/Keyboard.tsx";
 
 function App() {
 
-    const [solution, setSolution] = useState(() => {
+    const [solution, setSolution] = useState<string>(() => {
         return words[Math.floor(Math.random() * words.length)];
     });
 
-    const [guessedLetters, setGuessedLetters] = useState<string>([]);
+    const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
+
+    const incorrectLetters: string[] = guessedLetters.filter((letter: string): boolean => !solution.includes(letter));
 
     return (
         <div style={{
@@ -28,7 +30,7 @@ function App() {
             }}>
                 Lose Win
             </div>
-            <HangmanDrawing/>
+            <HangmanDrawing numberOfGuesses={incorrectLetters.length}/>
             <HangmanWord/>
             <div style={{alignSelf: "stretch", width: "100%"}}>
                 <Keyboard/>
