@@ -17,6 +17,9 @@
     color: white;
 }
 
+.btn.inactive {
+    opacity: .3;
+}
 
 .btn:hover:not(:disabled), .btn:focus:not(:disabled) {
     transform: translateY(-5px);

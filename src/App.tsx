@@ -55,7 +55,8 @@ function App() {
             <HangmanDrawing numberOfGuesses={incorrectLetters.length}/>
             <HangmanWord guessedLetters={guessedLetters} solution={solution}/>
             <div style={{alignSelf: "center", width: "200%"}}>
-                <Keyboard handleButtonClick={handleButtonClick}/>
+                <Keyboard activeLetters={guessedLetters.filter(letter => solution.includes(letter))} handleButtonClick={handleButtonClick}
+                          inactiveLetters={incorrectLetters}/>
             </div>
         </div>
     )
