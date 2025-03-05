@@ -13,6 +13,9 @@ function App() {
 
     const incorrectLetters: string[] = guessedLetters.filter((letter: string): boolean => !solution.includes(letter));
 
+    const isLoser = incorrectLetters.length >= 6;
+    const isWinner = solution.split("").every((letter: string): boolean => guessedLetters.includes(letter));
+
     function addGuessedLetter(key: string): void {
         if (guessedLetters.includes(key)) {
             return;
@@ -55,7 +58,8 @@ function App() {
             <HangmanDrawing numberOfGuesses={incorrectLetters.length}/>
             <HangmanWord guessedLetters={guessedLetters} solution={solution}/>
             <div style={{alignSelf: "center", width: "200%"}}>
-                <Keyboard activeLetters={guessedLetters.filter(letter => solution.includes(letter))} handleButtonClick={handleButtonClick}
+                <Keyboard activeLetters={guessedLetters.filter(letter => solution.includes(letter))}
+                          handleButtonClick={handleButtonClick}
                           inactiveLetters={incorrectLetters}/>
             </div>
         </div>
