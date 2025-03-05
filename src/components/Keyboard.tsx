@@ -19,7 +19,9 @@ export function Keyboard({handleButtonClick, activeLetters, inactiveLetters}: Ke
         {KEYS.map((letter: string) => {
             const isActive: boolean = activeLetters.includes(letter);
             const isInactive: boolean = inactiveLetters.includes(letter);
-            return <button key={letter} className={`${styles.btn} ${isActive ? styles.active : ""} ${isInactive ? styles.inactive : ""}`} onClick={() => handleButtonClick(letter)}>
+            return <button key={letter}
+                           className={`${styles.btn} ${isActive ? styles.active : ""} ${isInactive ? styles.inactive : ""}`}
+                           onClick={() => handleButtonClick(letter)}>
                 {letter}
             </button>
         })}
