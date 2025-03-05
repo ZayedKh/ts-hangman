@@ -21,6 +21,7 @@ export function Keyboard({handleButtonClick, activeLetters, inactiveLetters}: Ke
             const isInactive: boolean = inactiveLetters.includes(letter);
             return <button key={letter}
                            className={`${styles.btn} ${isActive ? styles.active : ""} ${isInactive ? styles.inactive : ""}`}
+                           disabled={isInactive || isActive}
                            onClick={() => handleButtonClick(letter)}>
                 {letter}
             </button>
